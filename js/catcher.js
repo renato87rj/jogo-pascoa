@@ -111,7 +111,7 @@ var Catcher = (function() {
 			else if ((enemies[i].y + enemies[i].height) > canvas.height) {
 				if (enemies[i].type == 'corona') {
 					removeEnemy(i);
-					score++;
+					//score++;
 					continue;
 				}
 				removeEnemy(i);
