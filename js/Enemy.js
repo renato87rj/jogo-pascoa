@@ -9,6 +9,7 @@ function Enemy(x, y, width, height, speed, captured) {
 	
 	//Tells if Enemy has been captured (bool)
 	this.captured = captured;
+	this.type = 'enemy';
 }
 
 Enemy.prototype.fall = function() {

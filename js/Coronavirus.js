@@ -9,6 +9,7 @@ function Coronavirus(x, y, width, height, speed, captured) {
 
     //Tells if Enemy has been captured (bool)
     this.captured = captured;
+    this.type = 'corona';
 }
 
 Coronavirus.prototype.fall = function() {

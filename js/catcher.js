@@ -98,12 +98,22 @@ var Catcher = (function() {
 			enemies[i].captured = detectCatch(enemies[i], player)
 
 			if (enemies[i].captured) {
+				if (enemies[i].type == 'corona') {
+					removeEnemy(i);
+					gamePlaying = false;
+					break;
+				}
 				removeEnemy(i);
 				score++;
 
 				continue;
 			}
 			else if ((enemies[i].y + enemies[i].height) > canvas.height) {
+				if (enemies[i].type == 'corona') {
+					removeEnemy(i);
+					score++;
+					continue;
+				}
 				removeEnemy(i);
 				gamePlaying = false;
 				console.log('Enemy y: ' + enemies[i].y + '\nEnemy height: ' + enemies[i].height + '\nCanvas height: ' + canvas.height);
