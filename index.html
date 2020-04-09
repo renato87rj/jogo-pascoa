@@ -1,0 +1,63 @@
+<html lang="pt-br">
+<head>
+  <title>Feliz Páscoa - Oliveira Trust</title>
+  
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style type = "text/css">
+		body {
+			margin: 0;
+      background-image: url('images/background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+		}
+
+    .init {
+      height: 100%;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .start {
+      cursor: url(images/rabbit-cursor.png), pointer;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+    .start:hover {
+      opacity: 1;
+    }
+
+    .start:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+    .title {
+      font-family: fantasy, Verdana, Tahoma, sans-serif;
+      font-style: italic;
+      color: #a71d82;
+      animation: title 1s linear 3;
+    }
+
+    @keyframes title {
+      from {opacity: 0;} 
+      to {opacity: 1;}
+    }  
+  
+  </style>
+
+  
+</head>
+<body>
+  <div class="init">
+    <a href="jogo.html" class="start">
+      <img src="images/iniciar.png" alt="Iniciar">
+    </a>    
+    <h1 class="title">Clique para começar a caça aos ovos!</h1>
+  </div>
+</body>  
+</html>
