@@ -114,13 +114,9 @@ var Catcher = (function() {
 	}
 	
 	function displayScore() {
-		sweetAlert("Voc\u00ea perdeu, mas pegou " + score + " ovos para comer nessa quarentena.");
-	}
-
-	function sweetAlert(msg) {
 		Swal.fire({
 			title: 'Muito bom!',
-			text: msg,
+			text: `Voc\u00ea perdeu, mas pegou ${score} ovos para comer nessa quarentena.`,
 			icon: 'success',
 			confirmButtonText: 'Legal!'
 		}).then((result) => {
