@@ -114,9 +114,21 @@ var Catcher = (function() {
 	}
 	
 	function displayScore() {
-		alert("Voc\u00ea perdeu, mas pegou " + score + " ovos para comer nessa quarentena.");
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		window.location.href = 'index.html';
+		sweetAlert("Voc\u00ea perdeu, mas pegou " + score + " ovos para comer nessa quarentena.");
+	}
+
+	function sweetAlert(msg) {
+		Swal.fire({
+			title: 'Muito bom!',
+			text: msg,
+			icon: 'success',
+			confirmButtonText: 'Legal!'
+		}).then((result) => {
+			if (result.value) {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				window.location.href = 'index.html';
+			}
+		})
 	}
 	
 	return {
