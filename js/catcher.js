@@ -153,11 +153,11 @@ var Catcher = (function() {
 
 		if (!attackedByCorona) {
 			title = 'Cuidado!';
-			text = `Você pegou ${score} ovos e não foi atingido pelo vírus. Mas lembre-se de respeitar a quarentena e procurar um médico caso sinta algum sintoma. A Oliveira Trust e a Fintools desejam a você e sua família uma feliz Páscoa!`;
+			text = `Você pegou ${score} ovos e não foi atingido pelo vírus. Mas lembre-se de respeitar a quarentena e procurar um médico caso sinta algum sintoma.`;
 			icon = 'warning';
 		} else {
 			title = 'Oopss!';
-			text = `Você foi atingido pelo Corona vírus. Lembre-se da importância de respeitar a quarentena e manter o isolamento social para o bem estar de todos. Caso sinta algum dos sintomas, procure um médico. A Oliveira Trust e a Fintools desejam a você e sua família uma feliz Páscoa!`;
+			text = `Você foi atingido pelo Corona vírus. Lembre-se da importância de respeitar a quarentena e manter o isolamento social para o bem estar de todos.`;
 			icon = 'error';
 		}
 
