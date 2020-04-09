@@ -83,11 +83,12 @@ var Catcher = (function() {
 		
 		//If a second has passed since an enemy was made, add an enemy then reset lastspawn.
 		if (!insane) {
-			if ((new Date().getTime() - lastSpawnCorona) > 2000) {
+			var mod = score*10;
+			if ((new Date().getTime() - lastSpawnCorona) > (2000-mod)) {
 				addCoronavirus();
 				lastSpawnCorona = new Date().getTime();
 			}
-			if ((new Date().getTime() - lastSpawn) > 1000) {
+			if ((new Date().getTime() - lastSpawn) > (1000-mod)) {
 				addEnemy();
 				lastSpawn = new Date().getTime();
 			}
