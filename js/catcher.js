@@ -26,6 +26,21 @@ var Catcher = (function() {
 
 		enemies.push(enemy);
 	}
+
+	//Add an coronavirus to the array of enemies
+	function addCoronavirus() {
+		var covid = new Coronavirus();
+
+		covid.x = Math.round(Math.random() * canvas.width);
+		covid.y = 0
+		covid.width = 60;
+		covid.height = 60;
+		covid.speed = 4;
+
+		covid.captured = false;
+
+		enemies.push(covid);
+	}
 	
 	//Removes an enemy from the specified index in the array of enemies
 	function removeEnemy(index) {
@@ -36,7 +51,7 @@ var Catcher = (function() {
 	function detectCatch(enemy, player) {
 		var horizontal;
 		var vertical;
-	
+
 		if ((enemy.x + enemy.width) > player.x && enemy.x < (player.x + player.width)) {
 			horizontal = true;
 		}
@@ -70,6 +85,7 @@ var Catcher = (function() {
 		if (!insane) {
 			if ((new Date().getTime() - lastSpawn) > 1000) {
 				addEnemy();
+				addCoronavirus();
 				lastSpawn = new Date().getTime();
 			}
 		}
@@ -80,7 +96,7 @@ var Catcher = (function() {
 		//Update properties of each enemy in the array and draw them.
 		for (var i = 0;  i < enemies.length; i++) {
 			enemies[i].captured = detectCatch(enemies[i], player)
-			
+
 			if (enemies[i].captured) {
 				removeEnemy(i);
 				score++;
