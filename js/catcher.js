@@ -4,6 +4,8 @@ var Catcher = (function() {
 		canvas = document.getElementById('feild');
 		canvas.width = window.innerWidth;
 		canvas.height = window.innerHeight;
+
+
 		
 		if (canvas.getContext) {
 			ctx = canvas.getContext('2d');
@@ -48,7 +50,7 @@ var Catcher = (function() {
 		else {
 			vertical = false;
 		}
-		
+
 		return horizontal && vertical;
 	}
 	
@@ -60,6 +62,9 @@ var Catcher = (function() {
 		var background = new Image();
 		background.src = 'images/background.jpg';
 		ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+		ctx.font = "30px Arial";
+		ctx.fillText(score, canvas.width-100, 50, canvas.width, canvas.height);
 		
 		//If a second has passed since an enemy was made, add an enemy then reset lastspawn.
 		if (!insane) {
@@ -79,6 +84,7 @@ var Catcher = (function() {
 			if (enemies[i].captured) {
 				removeEnemy(i);
 				score++;
+
 				continue;
 			}
 			else if ((enemies[i].y + enemies[i].height) > canvas.height) {
