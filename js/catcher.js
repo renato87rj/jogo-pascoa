@@ -75,6 +75,8 @@ var Catcher = (function() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		
 		var background = new Image();
+		var attackedByCorona = false; // Verify if player was attacked by corona virus
+
 		background.src = 'images/background.jpg';
 		ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -109,6 +111,7 @@ var Catcher = (function() {
 				if (enemies[i].type == 'corona') {
 					removeEnemy(i);
 					gamePlaying = false;
+					attackedByCorona = true;
 					break;
 				}
 				removeEnemy(i);
@@ -143,16 +146,30 @@ var Catcher = (function() {
 			window.webkitRequestAnimationFrame(gameLoop);
 		}
 		else {
-			displayScore();
+			displayScore(attackedByCorona);
 		}	
 	}
 	
-	function displayScore() {
+	function displayScore(attackedByCorona) {
+		var title;
+		var text;
+		var icon;
+
+		if (!attackedByCorona) {
+			title = 'Cuidado!';
+			text = `Você pegou ${score} ovos e não foi atingido pelo vírus. Mas lembre-se de respeitar a quarentena e procurar um médico caso sinta algum sintoma.`;
+			icon = 'warning';
+		} else {
+			title = 'Oopss!';
+			text = `Você foi atingido pelo Corona vírus. Lembre-se da importância de respeitar a quarentena e manter o isolamento social para o bem estar de todos.`;
+			icon = 'error';
+		}
+
 		Swal.fire({
-			title: 'Muito bom!',
-			text: `Voc\u00ea perdeu, mas pegou ${score} ovos para comer nessa quarentena.`,
-			icon: 'success',
-			confirmButtonText: 'Legal!'
+			title: title,
+			text: text,
+			icon: icon,
+			confirmButtonText: 'Jogar novamente!'
 		}).then((result) => {
 			if (result.value) {
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -160,6 +177,7 @@ var Catcher = (function() {
 			}
 		})
 	}
+
 	function moveOnPhone(e) {
 		var touch = e.touches[0]; // Get the information for finger #1
 		touchX=touch.pageX-touch.target.offsetLeft;
