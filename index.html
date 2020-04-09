@@ -54,10 +54,29 @@
 </head>
 <body>
   <div class="init">
-    <a href="jogo.html" class="start">
+    <a href="#" class="start" onclick="gameBegin()">
       <img src="images/iniciar.png" alt="Iniciar">
-    </a>    
+    </a>
     <h1 class="title">Clique para começar a caça aos ovos!</h1>
   </div>
-</body>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <script>
+    function gameBegin() {
+      const ovo = "<img src='images/ovo.png' width='50' height='50'>";
+      const virus = "<img src='images/covid-19.png' width='50' height='50'>"
+
+      Swal.fire({
+        title: 'A caça vai começar!',
+        html: `Pegue os ovos! ${ovo} <br> Cuidado com o coronavírus! ${virus}`,
+        icon: 'warning',
+        confirmButtonText: 'Ir para a caça!'
+      }).then((result) => {
+        if (result.value) {
+          window.location.href = 'jogo.html';
+        }
+      })
+    }
+  </script>
+</body>
 </html>

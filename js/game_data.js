@@ -9,5 +9,6 @@ var enemies = [];
 //Game stats
 var gamePlaying = true;
 var lastSpawn = 0;
+var lastSpawnCorona = 0;
 var score = 0;
 var insane = false;
