@@ -156,9 +156,9 @@ var Catcher = (function() {
 		var icon;
 
 		if (!attackedByCorona) {
-			title = 'Cuidado!';
-			text = `Você pegou ${score} ovos e não foi atingido pelo vírus. Mas lembre-se de respeitar a quarentena e procurar um médico caso sinta algum sintoma.`;
-			icon = 'warning';
+			title = 'Parabéns!';
+			text = `Você pegou ${score} ovos para comer nessa quarentena.`;
+			icon = 'success';
 		} else {
 			title = 'Oopss!';
 			text = `Você foi atingido pelo Corona vírus. Lembre-se da importância de respeitar a quarentena e manter o isolamento social para o bem estar de todos.`;
