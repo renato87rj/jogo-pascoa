@@ -13,14 +13,14 @@ var Catcher = (function() {
 	}
 	
 	//Add an enemy to the array of enemies
-	function addEnemy() {
+	function addEnemy(speed) {
 		var enemy = new Enemy();
 		
 		enemy.x = Math.round(Math.random() * canvas.width);
 		enemy.y = 0
 		enemy.width = 60;
 		enemy.height = 60;
-		enemy.speed = 7;
+		enemy.speed = speed;
 
 		enemy.captured = false;
 
@@ -89,7 +89,11 @@ var Catcher = (function() {
 				lastSpawnCorona = new Date().getTime();
 			}
 			if ((new Date().getTime() - lastSpawn) > (1000-mod)) {
-				addEnemy();
+				// aumentando velocidade de 5 em 5
+				if (score % 5 == 0) {
+					speed++;
+				}
+				addEnemy(speed);
 				lastSpawn = new Date().getTime();
 			}
 		}
