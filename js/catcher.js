@@ -152,6 +152,12 @@ var Catcher = (function() {
 			}
 		})
 	}
+	function moveOnPhone(e) {
+		var touch = e.touches[0]; // Get the information for finger #1
+		touchX=touch.pageX-touch.target.offsetLeft;
+		touchY=touch.pageY-touch.target.offsetTop;
+		player.moveTo(touchX, player.y);
+	}
 	
 	return {
 		play: function() {
@@ -161,6 +167,8 @@ var Catcher = (function() {
 			player = new Bucket(0, canvas.height - 100, 100, 120);
 			
 			canvas.addEventListener('mousemove', function() {player.moveTo(event.clientX, player.y);}, false);
+			canvas.addEventListener('touchstart', moveOnPhone, false);
+			canvas.addEventListener('touchmove', moveOnPhone, false);
 			gameLoop();
 		}
 	}
